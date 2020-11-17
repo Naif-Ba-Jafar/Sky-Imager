@@ -12,7 +12,7 @@ import sys
 import urllib.request
 import requests
 import LCDlib
-myAPI = 'MZ7R8ZVF28M8VMXN' 
+myAPI = 'YourAPI' 
 baseURL = 'https://api.thingspeak.com/update?api_key=%s' % myAPI
 GPIO.setwarnings(False)
 redLED = 21
@@ -100,19 +100,18 @@ def makebinary(imagepath, radiusMask = None):
     ClearSkyPower = 62190000
     OutputPower = ClearSkyPower * cloud_coverage
     PVoutput = ClearSkyPower - OutputPower
-    print('Solar power output forecast is {:.3f}MW'.format(PVoutput))
+    print('Solar power output forecast is {:.3f}W'.format(PVoutput))
 
         
         
 
     date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S")
     print ("-------------------------------------------------------------")
-    print ("Solar Irradiance Status for - Kota Damansara || {}".format(date_time))
+    print ("Solar Irradiance Status for - YourLocation || {}".format(date_time))
     print ("-------------------------------------------------------------")
 
-    # E14U387945GaZOYerDx4BRPWpMWCspJ-
-    # qL2tfC6BPJ_AOMFfji_tDwgLJ6ZW_aGx
-    url = 'https://api.solcast.com.au/world_radiation/forecasts?latitude=3.20933&longitude=101.561339&api_key=E14U387945GaZOYerDx4BRPWpMWCspJ-'
+
+    url = 'https://api.solcast.com.au/world_radiation/forecasts?latitude=35.20933&longitude=-101.561339&api_key=YourAPI'
     res = requests.get(url, headers={'Content-Type': 'application/json'})
     data = res.json()
     forecast = data["forecasts"][0]["ghi"]
@@ -136,16 +135,16 @@ def makebinary(imagepath, radiusMask = None):
     
     
     warnings.filterwarnings("ignore", category=DeprecationWarning) 
-    APIKEY='2d14a14179399eb76caee93f5cb702e5'
+    APIKEY='YourAPI'
     OpenWMap=pyowm.OWM(APIKEY)
-    Weather=OpenWMap.weather_at_place('Kota Damansara')
+    Weather=OpenWMap.weather_at_place('YourLocation')
     Data=Weather.get_weather()
-    Weatherforecast = OpenWMap.three_hours_forecast('Kota Damansara')
+    Weatherforecast = OpenWMap.three_hours_forecast('YourLocation')
 
     date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S")
 
     print ("-------------------------------------------------------------")
-    print ("Weather Status for - Kota Damansara || {}".format(date_time))
+    print ("Weather Status for - YourLocation || {}".format(date_time))
     print ("-------------------------------------------------------------")
 
     temp = Data.get_temperature(unit='celsius')
@@ -204,7 +203,7 @@ def makebinary(imagepath, radiusMask = None):
     
     mylcd = LCDlib.lcd()
     mylcd.lcd_display_string("Cloud:{:.3f}%" .format(cloud_coverage*100), 1)
-    mylcd.lcd_display_string("PV:{:.3f}MW" .format(PVoutput), 2)
+    mylcd.lcd_display_string("PV:{:.3f}W" .format(PVoutput), 2)
     mylcd.lcd_display_string("Rad:{:.3f}W/m^2" .format(forecast), 3)
     mylcd.lcd_display_string("ETA:{:.3f}min" .format(eta), 4)           
             # Sending the data to thingspeak
