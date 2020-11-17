@@ -4,16 +4,16 @@ from datetime import datetime
 import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
-APIKEY='2d14a14179399eb76caee93f5cb702e5'
+APIKEY='YourAPI'
 OpenWMap=pyowm.OWM(APIKEY)
-Weather=OpenWMap.weather_at_place('Kota Damansara')
+Weather=OpenWMap.weather_at_place('YourLocation')
 Data=Weather.get_weather()
-Weatherforecast = OpenWMap.three_hours_forecast('Kota Damansara')
+Weatherforecast = OpenWMap.three_hours_forecast('YourLocation')
 
 date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S")
 
 print ("-------------------------------------------------------------")
-print ("Weather Status for - Kota Damansara || {}".format(date_time))
+print ("Weather Status for - YourLocation || {}".format(date_time))
 print ("-------------------------------------------------------------")
 
 temp = Data.get_temperature(unit='celsius')
