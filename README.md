@@ -24,7 +24,7 @@ Modified to:
 - Show the forecasted solar power output, solar radiation, ETA, and forecasted and current weather conditions.
 - Added online platform which is ThingSpeak to send the data.
 - Added Dropbox to upload the images directly after taken.
-- Added some LEDs as indicators and LCD 20x40
+- Added some LEDs as indicators and LCD 20x4
 
 By Naif Ba Jafar
 
