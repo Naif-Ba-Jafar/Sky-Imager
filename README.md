@@ -16,3 +16,16 @@ Modified to be more efficient, understandable, and pythonic by ES-Alexander.
 Can be switched to using the PiCamera library by adding 'picamera' to the end of the `chrontab` modification in the tutorial.  
 `*/2 7-19 * * * python /home/pi/DIY-sky-imager/capture_image.py`  
 -> `*/2 7-19 * * * python /home/pi/DIY-sky-imager/capture_image.py picamera`
+
+------
+
+Modified to:
+
+- Show the forecasted solar power output, solar radiation, ETA, and forecasted and current weather conditions.
+- Added online platform which is ThingSpeak to send the data.
+- Added Dropbox to upload the images directly after taken.
+- Added some LEDs as indicators and LCD 20x40
+
+By Naif Ba Jafar
+
+-------
