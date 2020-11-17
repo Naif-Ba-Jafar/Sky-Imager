@@ -52,7 +52,7 @@ os.rename(file, new_file)
 makebinary(new_file, fisheye_radius)
 #imagess = now.strftime("%Y/%m/%d/%Y-%m-%d-%H-%M-%S.jpg")
 with open(new_file, 'rb') as f:
-    dbx = dropbox.Dropbox('t6iWTqGRNKcAAAAAAAAAAdmweEK4srkWy0J-a2kv4PnbAWKKjE8g0CjAwUuNVjMO')
+    dbx = dropbox.Dropbox('YourToken')
     dbx.files_upload(f.read(), now.strftime("/%Y/%m/%d/%Y-%m-%d-%H-%M-%S.jpg"))
 f.close()
 
