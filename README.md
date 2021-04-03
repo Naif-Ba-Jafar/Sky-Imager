@@ -26,6 +26,6 @@ Modified to:
 - Added Dropbox to upload the images directly after taken.
 - Added some LEDs as indicators and LCD 20x4
 
-By Naif Ba Jafar
+By Naif Bajafar
 
 -------
